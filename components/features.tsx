@@ -1,5 +1,5 @@
 import { CalendarIcon, FileTextIcon } from "@radix-ui/react-icons";
-import { BellIcon, Share2Icon } from "lucide-react";
+import { BellIcon, Share2Icon, Images, TvMinimal, Rainbow } from "lucide-react";
 
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
@@ -33,9 +33,9 @@ const files = [
 
 const features = [
   {
-    Icon: FileTextIcon,
-    name: "Save your files",
-    description: "We automatically save your files as you type.",
+    Icon: Images,
+    name: "Photo Gallery",
+    description: "Display your favorite memories.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
@@ -68,9 +68,10 @@ const features = [
     ),
   },
   {
-    Icon: BellIcon,
-    name: "Notifications",
-    description: "Get notified when something happens.",
+    Icon: Rainbow,
+    name: "Share your memories",
+    description:
+      "Help elderly family members stay connected with slideshow of family photos",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
@@ -79,9 +80,9 @@ const features = [
     ),
   },
   {
-    Icon: Share2Icon,
-    name: "Integrations",
-    description: "Supports 100+ integrations and counting.",
+    Icon: TvMinimal,
+    name: "Display lots of things",
+    description: "Supports lots of contents, like images, weather or news.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
