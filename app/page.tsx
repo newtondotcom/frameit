@@ -4,6 +4,7 @@ import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
 import { Button } from "@/components/ui/button";
 import WaitlistForm from "@/components/waitlist-form";
 import { BentoDemo } from "@/components/features";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 
 export default function Home() {
   const parallaxItems = [
@@ -194,25 +195,26 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="waitlist"
-          className="w-full py-12 md:py-24 lg:py-32 bg-muted/40"
-        >
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Join Our Waitlist
-                </h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Be the first to know when FrameIt is available for purchase
-                </p>
-              </div>
-              <div className="w-full max-w-md">
-                <WaitlistForm />
+        <section id="waitlist">
+          <BackgroundGradientAnimation className="w-full py-12 md:py-24 lg:py-32">
+            <div className="z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl">
+              <h2 className="bg-clip-text text-transparent drop-shadow-2xl bg-gradient-to-b from-white/80 to-white/20">
+                Join Our Waitlist
+              </h2>
+            </div>
+            <div className="container px-4 md:px-6">
+              <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                <div className="space-y-2">
+                  <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    Be the first to know when FrameIt is available for purchase
+                  </p>
+                </div>
+                <div className="w-full max-w-md">
+                  <WaitlistForm />
+                </div>
               </div>
             </div>
-          </div>
+          </BackgroundGradientAnimation>
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
