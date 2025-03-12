@@ -23,3 +23,9 @@ I have 3d files for every components, I want to make every component apperaing w
 Include a Product Launch Waitlist form section to collect emails and notify them when the product is ready to be sold.
 
 I want to include an other page where people can preorder it, using lemon squeezy for payment.
+
+
+Use tailwind css, shadcn, only ts files, prisma, and create required api routes.
+Can u try to use Aceternity UI and Magic UI library components ? suich as bento grid or hero Video dialog.
+Can you also create the dashboard that will be protected with authentification, where the user can manage his devices and the data displayed on them. I will be using nextAuth with OAuth providers.
+In the dahsbpard, allow users to see orders, current owned devices, and manage them. they can ask for account deletion etc.
