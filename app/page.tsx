@@ -1,10 +1,9 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { HeroParallax } from "@/components/ui/hero-parallax";
 import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
 import { Button } from "@/components/ui/button";
 import WaitlistForm from "@/components/waitlist-form";
+import { BentoDemo } from "@/components/features";
 
 export default function Home() {
   const parallaxItems = [
@@ -175,17 +174,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <BentoGrid className="mx-auto max-w-5xl py-12">
-              {features.map((feature, i) => (
-                <BentoGridItem
-                  key={i}
-                  title={feature.title}
-                  description={feature.description}
-                  icon={feature.icon}
-                  className={i === 3 || i === 5 ? "md:col-span-2" : ""}
-                />
-              ))}
-            </BentoGrid>
+            <BentoDemo />
           </div>
         </section>
 
@@ -201,9 +190,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto max-w-5xl py-12">
-              <HeroParallax items={parallaxItems} />
-            </div>
+            <div className="mx-auto max-w-5xl py-12"></div>
           </div>
         </section>
 
