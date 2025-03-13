@@ -1,16 +1,22 @@
-import { getServerSession } from "next-auth/next"
-import { authOptions } from "@/lib/auth"
-import { prisma } from "@/lib/prisma"
-import { DashboardHeader } from "@/components/dashboard-header"
-import { DashboardShell } from "@/components/dashboard-shell"
-import { Button } from "@/components/ui/button"
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid"
-import Link from "next/link"
-import { PlusCircle, Tablet, ShoppingCart } from "lucide-react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
+import { DashboardHeader } from "@/components/dashboard-header";
+import { DashboardShell } from "@/components/dashboard-shell";
+import { Button } from "@/components/ui/button";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import Link from "next/link";
+import { PlusCircle, Tablet, ShoppingCart } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default async function DashboardPage() {
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions);
 
   const [devices, orders, user] = await Promise.all([
     prisma.device.findMany({
@@ -45,7 +51,7 @@ export default async function DashboardPage() {
         createdAt: true,
       },
     }),
-  ])
+  ]);
 
   const memberSince = user?.createdAt
     ? new Date(user.createdAt).toLocaleDateString("en-US", {
@@ -53,7 +59,7 @@ export default async function DashboardPage() {
         month: "long",
         day: "numeric",
       })
-    : "N/A"
+    : "N/A";
 
   return (
     <DashboardShell>
@@ -70,6 +76,47 @@ export default async function DashboardPage() {
       </DashboardHeader>
 
       <div className="grid gap-6">
+        {devices.length > 0 && (
+          <Card>
+            <CardHeader>
+              <CardTitle>Recent Devices</CardTitle>
+              <CardDescription>
+                Your recently added FrameIt devices
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid gap-4 md:grid-cols-3">
+                {devices.map((device) => (
+                  <Link
+                    key={device.id}
+                    href={`/dashboard/devices/${device.id}`}
+                  >
+                    <div className="flex items-center gap-4 rounded-lg border p-4 transition-colors hover:bg-muted">
+                      <Tablet className="h-8 w-8 text-primary" />
+                      <div>
+                        <p className="font-medium">{device.name}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {device.size}"{" "}
+                          {device.displayType === "bw" ? "B&W" : "Color"}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+              {devices.length > 0 && (
+                <div className="mt-4 flex justify-end">
+                  <Link href="/dashboard/devices">
+                    <Button variant="ghost" size="sm">
+                      View all devices
+                    </Button>
+                  </Link>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        )}
+
         <BentoGrid className="grid-cols-1 md:grid-cols-3">
           <BentoGridItem
             title="My Devices"
@@ -117,41 +164,6 @@ export default async function DashboardPage() {
           </BentoGridItem>
         </BentoGrid>
 
-        {devices.length > 0 && (
-          <Card>
-            <CardHeader>
-              <CardTitle>Recent Devices</CardTitle>
-              <CardDescription>Your recently added FrameIt devices</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-4 md:grid-cols-3">
-                {devices.map((device) => (
-                  <Link key={device.id} href={`/dashboard/devices/${device.id}`}>
-                    <div className="flex items-center gap-4 rounded-lg border p-4 transition-colors hover:bg-muted">
-                      <Tablet className="h-8 w-8 text-primary" />
-                      <div>
-                        <p className="font-medium">{device.name}</p>
-                        <p className="text-sm text-muted-foreground">
-                          {device.size}" {device.displayType === "bw" ? "B&W" : "Color"}
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-              {devices.length > 0 && (
-                <div className="mt-4 flex justify-end">
-                  <Link href="/dashboard/devices">
-                    <Button variant="ghost" size="sm">
-                      View all devices
-                    </Button>
-                  </Link>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        )}
-
         {orders.length > 0 && (
           <Card>
             <CardHeader>
@@ -161,11 +173,16 @@ export default async function DashboardPage() {
             <CardContent>
               <div className="space-y-4">
                 {orders.map((order) => (
-                  <div key={order.id} className="flex items-center justify-between rounded-lg border p-4">
+                  <div
+                    key={order.id}
+                    className="flex items-center justify-between rounded-lg border p-4"
+                  >
                     <div className="flex items-center gap-4">
                       <ShoppingCart className="h-8 w-8 text-primary" />
                       <div>
-                        <p className="font-medium">Order #{order.id.substring(0, 8)}</p>
+                        <p className="font-medium">
+                          Order #{order.id.substring(0, 8)}
+                        </p>
                         <p className="text-sm text-muted-foreground">
                           {new Date(order.createdAt).toLocaleDateString()}
                         </p>
@@ -189,6 +206,5 @@ export default async function DashboardPage() {
         )}
       </div>
     </DashboardShell>
-  )
+  );
 }
-

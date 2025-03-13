@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Sidebar,
   SidebarContent,
@@ -13,24 +13,31 @@ import {
   SidebarRail,
   SidebarTrigger,
   useSidebar,
-} from "@/components/ui/sidebar"
-import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { LayoutDashboard, Settings, ShoppingCart, Tablet, LogOut, Search } from "lucide-react"
-import { signOut } from "next-auth/react"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/sidebar";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  LayoutDashboard,
+  Settings,
+  ShoppingCart,
+  Tablet,
+  LogOut,
+  Search,
+} from "lucide-react";
+import { signOut } from "next-auth/react";
+import { Input } from "@/components/ui/input";
 
 interface DashboardSidebarProps {
   user: {
-    name?: string | null
-    email?: string | null
-    image?: string | null
-  }
+    name?: string | null;
+    email?: string | null;
+    image?: string | null;
+  };
 }
 
 export function DashboardSidebar({ user }: DashboardSidebarProps) {
-  const pathname = usePathname()
-  const { toggleSidebar } = useSidebar()
+  const pathname = usePathname();
+  const { toggleSidebar } = useSidebar();
 
   const routes = [
     {
@@ -57,7 +64,7 @@ export function DashboardSidebar({ user }: DashboardSidebarProps) {
       icon: Settings,
       active: pathname.includes("/dashboard/settings"),
     },
-  ]
+  ];
 
   return (
     <Sidebar>
@@ -66,25 +73,22 @@ export function DashboardSidebar({ user }: DashboardSidebarProps) {
           <Link href="/" className="flex items-center gap-2">
             <span className="font-bold text-xl">FrameIt</span>
           </Link>
-          <SidebarTrigger className="ml-auto md:hidden" />
-        </div>
-        <div className="px-2 py-2">
-          <div className="relative">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Search..."
-              className="w-full bg-background pl-8 md:w-[200px] lg:w-[280px]"
-            />
-          </div>
+          <SidebarTrigger
+            onClick={toggleSidebar}
+            className="ml-auto md:hidden"
+          />
         </div>
       </SidebarHeader>
 
-      <SidebarContent>
+      <SidebarContent className="px-4">
         <SidebarMenu>
           {routes.map((route) => (
             <SidebarMenuItem key={route.href}>
-              <SidebarMenuButton asChild isActive={route.active} tooltip={route.label}>
+              <SidebarMenuButton
+                asChild
+                isActive={route.active}
+                tooltip={route.label}
+              >
                 <Link href={route.href}>
                   <route.icon className="h-4 w-4" />
                   <span>{route.label}</span>
@@ -99,13 +103,22 @@ export function DashboardSidebar({ user }: DashboardSidebarProps) {
         <div className="flex items-center gap-2 p-4">
           <Avatar className="h-8 w-8">
             <AvatarImage src={user.image || ""} alt={user.name || ""} />
-            <AvatarFallback>{user.name?.charAt(0) || user.email?.charAt(0) || "U"}</AvatarFallback>
+            <AvatarFallback>
+              {user.name?.charAt(0) || user.email?.charAt(0) || "U"}
+            </AvatarFallback>
           </Avatar>
           <div className="flex flex-col truncate">
             <span className="text-sm font-medium">{user.name}</span>
-            <span className="text-xs text-muted-foreground truncate">{user.email}</span>
+            <span className="text-xs text-muted-foreground truncate">
+              {user.email}
+            </span>
           </div>
-          <Button variant="ghost" size="icon" className="ml-auto" onClick={() => signOut({ callbackUrl: "/" })}>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="ml-auto"
+            onClick={() => signOut({ callbackUrl: "/" })}
+          >
             <LogOut className="h-4 w-4" />
             <span className="sr-only">Sign out</span>
           </Button>
@@ -114,6 +127,5 @@ export function DashboardSidebar({ user }: DashboardSidebarProps) {
 
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }
-
