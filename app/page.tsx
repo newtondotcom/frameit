@@ -1,12 +1,19 @@
+"use client";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X, Menu } from "lucide-react";
 import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
 import { Button } from "@/components/ui/button";
 import WaitlistForm from "@/components/waitlist-form";
 import { BentoDemo } from "@/components/features";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import { useState } from "react";
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen((prev) => !prev);
+  };
+
   const parallaxItems = [
     {
       title: '3.5" Compact Frame',
@@ -76,7 +83,9 @@ export default function Home() {
         <div className="flex items-center gap-2">
           <span className="font-bold text-2xl">FrameIt</span>
         </div>
-        <nav className="flex gap-4 sm:gap-6">
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex gap-4 sm:gap-6">
           <Link
             href="#features"
             className="text-sm font-medium hover:underline underline-offset-4"
@@ -108,7 +117,60 @@ export default function Home() {
             Dashboard
           </Link>
         </nav>
+
+        {/* Mobile Menu Toggle Button */}
+        <Button
+          variant="ghost"
+          className="md:hidden"
+          onClick={toggleMobileMenu}
+        >
+          {mobileMenuOpen ? (
+            <X className="w-6 h-6" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
+        </Button>
       </header>
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <nav className="md:hidden flex flex-col gap-4 p-4 border-b bg-white shadow-md">
+          <Link
+            href="#features"
+            className="text-sm font-medium hover:underline underline-offset-4"
+            onClick={toggleMobileMenu}
+          >
+            Features
+          </Link>
+          <Link
+            href="#specs"
+            className="text-sm font-medium hover:underline underline-offset-4"
+            onClick={toggleMobileMenu}
+          >
+            Specs
+          </Link>
+          <Link
+            href="#waitlist"
+            className="text-sm font-medium hover:underline underline-offset-4"
+            onClick={toggleMobileMenu}
+          >
+            Waitlist
+          </Link>
+          <Link
+            href="/preorder"
+            className="text-sm font-medium hover:underline underline-offset-4"
+            onClick={toggleMobileMenu}
+          >
+            Preorder
+          </Link>
+          <Link
+            href="/dashboard"
+            className="text-sm font-medium hover:underline underline-offset-4"
+            onClick={toggleMobileMenu}
+          >
+            Dashboard
+          </Link>
+        </nav>
+      )}
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-20">
           <div className="container px-4 md:px-6">

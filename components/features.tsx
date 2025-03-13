@@ -1,5 +1,5 @@
-import { CalendarIcon, FileTextIcon } from "@radix-ui/react-icons";
-import { BellIcon, Share2Icon, Images, TvMinimal, Rainbow } from "lucide-react";
+import { Images, TvMinimal, Rainbow } from "lucide-react";
+import { CalendarIcon } from "@radix-ui/react-icons";
 
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
