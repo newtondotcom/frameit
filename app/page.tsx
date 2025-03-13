@@ -79,7 +79,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-16 flex items-center justify-between border-b">
+      <header className="fixed top-0 left-0 w-full h-16 flex items-center justify-between border-b bg-white/10 shadow-md z-50 px-4 lg:px-6 backdrop-blur-md">
         <div className="flex items-center gap-2">
           <span className="font-bold text-2xl">FrameIt</span>
         </div>
@@ -171,7 +171,7 @@ export default function Home() {
           </Link>
         </nav>
       )}
-      <main className="flex-1">
+      <main className="flex-1 pt-8">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-20">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
