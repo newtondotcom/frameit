@@ -1,11 +1,19 @@
+"use client";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X, Menu } from "lucide-react";
 import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
 import { Button } from "@/components/ui/button";
 import WaitlistForm from "@/components/waitlist-form";
 import { BentoDemo } from "@/components/features";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import { useState } from "react";
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen((prev) => !prev);
+  };
+
   const parallaxItems = [
     {
       title: '3.5" Compact Frame',
@@ -71,11 +79,13 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-16 flex items-center justify-between border-b">
+      <header className="fixed top-0 left-0 w-full h-16 flex items-center justify-between border-b bg-white/10 shadow-md z-50 px-4 lg:px-6 backdrop-blur-md">
         <div className="flex items-center gap-2">
           <span className="font-bold text-2xl">FrameIt</span>
         </div>
-        <nav className="flex gap-4 sm:gap-6">
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex gap-4 sm:gap-6">
           <Link
             href="#features"
             className="text-sm font-medium hover:underline underline-offset-4"
@@ -107,8 +117,61 @@ export default function Home() {
             Dashboard
           </Link>
         </nav>
+
+        {/* Mobile Menu Toggle Button */}
+        <Button
+          variant="ghost"
+          className="md:hidden"
+          onClick={toggleMobileMenu}
+        >
+          {mobileMenuOpen ? (
+            <X className="w-6 h-6" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
+        </Button>
       </header>
-      <main className="flex-1">
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <nav className="md:hidden flex flex-col gap-4 p-4 border-b bg-white shadow-md">
+          <Link
+            href="#features"
+            className="text-sm font-medium hover:underline underline-offset-4"
+            onClick={toggleMobileMenu}
+          >
+            Features
+          </Link>
+          <Link
+            href="#specs"
+            className="text-sm font-medium hover:underline underline-offset-4"
+            onClick={toggleMobileMenu}
+          >
+            Specs
+          </Link>
+          <Link
+            href="#waitlist"
+            className="text-sm font-medium hover:underline underline-offset-4"
+            onClick={toggleMobileMenu}
+          >
+            Waitlist
+          </Link>
+          <Link
+            href="/preorder"
+            className="text-sm font-medium hover:underline underline-offset-4"
+            onClick={toggleMobileMenu}
+          >
+            Preorder
+          </Link>
+          <Link
+            href="/dashboard"
+            className="text-sm font-medium hover:underline underline-offset-4"
+            onClick={toggleMobileMenu}
+          >
+            Dashboard
+          </Link>
+        </nav>
+      )}
+      <main className="flex-1 pt-8">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-20">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
@@ -194,25 +257,26 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="waitlist"
-          className="w-full py-12 md:py-24 lg:py-32 bg-muted/40"
-        >
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Join Our Waitlist
-                </h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Be the first to know when FrameIt is available for purchase
-                </p>
-              </div>
-              <div className="w-full max-w-md">
-                <WaitlistForm />
+        <section id="waitlist">
+          <BackgroundGradientAnimation className="w-full py-12 md:py-24 lg:py-32">
+            <div className="z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl">
+              <h2 className="bg-clip-text text-transparent drop-shadow-2xl bg-gradient-to-b from-white/80 to-white/20">
+                Join Our Waitlist
+              </h2>
+            </div>
+            <div className="container px-4 md:px-6">
+              <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                <div className="space-y-2">
+                  <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    Be the first to know when FrameIt is available for purchase
+                  </p>
+                </div>
+                <div className="w-full max-w-md">
+                  <WaitlistForm />
+                </div>
               </div>
             </div>
-          </div>
+          </BackgroundGradientAnimation>
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">

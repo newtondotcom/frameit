@@ -1,16 +1,16 @@
-import { getServerSession } from "next-auth/next"
-import { authOptions } from "@/lib/auth"
-import { prisma } from "@/lib/prisma"
-import { DashboardHeader } from "@/components/dashboard-header"
-import { DashboardShell } from "@/components/dashboard-shell"
-import { DeviceCard } from "@/components/device-card"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { PlusCircle } from "lucide-react"
-import { EmptyPlaceholder } from "@/components/empty-placeholder"
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
+import { DashboardHeader } from "@/components/dashboard-header";
+import { DashboardShell } from "@/components/dashboard-shell";
+import { DeviceCard } from "@/components/device-card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { PlusCircle } from "lucide-react";
+import { EmptyPlaceholder } from "@/components/empty-placeholder";
 
 export default async function DevicesPage() {
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions);
 
   const devices = await prisma.device.findMany({
     where: {
@@ -19,7 +19,7 @@ export default async function DevicesPage() {
     orderBy: {
       createdAt: "desc",
     },
-  })
+  });
 
   return (
     <DashboardShell>
@@ -39,7 +39,7 @@ export default async function DevicesPage() {
           ))}
         </div>
       ) : (
-        <EmptyPlaceholder>
+        <EmptyPlaceholder className="min-w-full">
           <EmptyPlaceholder.Icon name="device" />
           <EmptyPlaceholder.Title>No devices added</EmptyPlaceholder.Title>
           <EmptyPlaceholder.Description>
@@ -54,6 +54,5 @@ export default async function DevicesPage() {
         </EmptyPlaceholder>
       )}
     </DashboardShell>
-  )
+  );
 }
-
