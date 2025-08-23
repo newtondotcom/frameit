@@ -9,11 +9,11 @@ export default function Specs() {
             className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
             id="specs-heading"
           >
-            Tailored to Your Space
+            Hardware Specifications
           </h2>
           <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            Customize your FrameIt with multiple sizes, display types, and
-            finishes to perfectly complement your home décor
+            Compatible with Raspberry Pi 4, 3, or Zero 2 W. Supports Inky Impression displays (4", 5.7", 7.3", 13.3") 
+            and Waveshare e-Paper displays in both full color and black & white options. Easy installation perfect for beginners.
           </p>
         </div>
       </div>

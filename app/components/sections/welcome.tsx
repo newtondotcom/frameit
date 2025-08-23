@@ -34,13 +34,13 @@ export default function Welcome() {
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                 id="welcome-heading"
               >
-                Reimagine Your Memories with E-Ink Innovation
+                Open-Source E-Ink Display for Your Digital Life
               </h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                Experience the perfect blend of technology and nostalgia with
-                our ultra-low power, always-on display that brings your
-                cherished moments to life with the comfort and elegance of
-                paper.
+                FrameIt is a customizable E-Ink display powered by Raspberry Pi. 
+                With natural paper-like aesthetics and a simple web interface, 
+                effortlessly display photos, weather, calendars, news, and more—all 
+                with minimal power consumption and zero distractions.
               </p>
             </div>
           </div>

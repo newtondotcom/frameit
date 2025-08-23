@@ -105,9 +105,9 @@ const cardVariants = {
 const features = [
   {
     Icon: Images,
-    name: "Stunning Photo Gallery",
+    name: "Image Upload & Display",
     description:
-      "Display your memories in vivid color with our advanced E-Ink technology that's gentle on the eyes and uses minimal power.",
+      "Upload and display any image from your browser. Showcase your memories in vivid color with E-Ink technology that's gentle on the eyes and uses minimal power.",
     href: "#",
     cta: "Explore gallery features",
     className: "col-span-3 lg:col-span-1",
@@ -143,11 +143,11 @@ const features = [
   },
   {
     Icon: Rainbow,
-    name: "Seamless Family Connection",
+    name: "Weather & Calendar Integration",
     description:
-      "Bridge generations with a simple, elegant display that keeps elderly family members connected through a continuous stream of updated family photos.",
+      "Display current weather conditions and multi-day forecasts with customizable layouts. Visualize your calendar from Google, Outlook, or Apple Calendar with personalized views.",
     href: "#",
-    cta: "Learn about sharing",
+    cta: "Learn about integrations",
     className: "col-span-3 lg:col-span-2",
     cardVariants: cardVariants.topRight, // Top-right animation
     background: (
@@ -159,9 +159,9 @@ const features = [
   },
   {
     Icon: TvMinimal,
-    name: "Versatile Content Display",
+    name: "News, Clocks & AI Content",
     description:
-      "Beyond photos, showcase weather updates, calendar events, news headlines, and personalized messages—all with the eye comfort of E-Ink technology.",
+      "Show daily comics and front pages of major newspapers. Display customizable clock faces. Generate images and dynamic text from prompts using OpenAI's models.",
     href: "#",
     cta: "Discover content options",
     className: "col-span-3 lg:col-span-2",
@@ -175,12 +175,12 @@ const features = [
   },
   {
     Icon: ShieldPlus,
-    name: "Bank-Level Security",
+    name: "Open Source & Customizable",
     description:
-      "Your memories deserve protection. All content is end-to-end encrypted before transmission to your Frame, ensuring complete privacy and security.",
+      "Modify, customize, and create your own plugins. Set up scheduled playlists to display different content at designated times. Perfect for makers and beginners alike.",
     className: "col-span-3 lg:col-span-1",
     href: "#",
-    cta: "Explore security features",
+    cta: "View documentation",
     cardVariants: cardVariants.bottomRight, // Bottom-right animation
     background: (
       <Calendar
