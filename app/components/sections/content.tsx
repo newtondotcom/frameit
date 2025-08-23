@@ -49,12 +49,12 @@ export default function Content() {
             className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
             id="content-heading"
           >
-            Personalize Your Experience
+            Rich Plugin Ecosystem
           </h2>
           <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            Curate your perfect display through our intuitive web app and
-            transform your <span className="text-primary">FrameIt</span> into a
-            personalized window to what matters most
+            From image uploads and weather forecasts to daily newspapers and AI-generated content, 
+            <span className="text-primary"> FrameIt</span> offers diverse plugins to display exactly what you care about. 
+            Build custom plugins or use our growing library of ready-made options.
           </p>
         </div>
       </div>

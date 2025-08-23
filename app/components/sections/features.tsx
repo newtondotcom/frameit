@@ -6,11 +6,11 @@ export default function Features() {
       <div className="flex flex-col items-center justify-center space-y-4 text-center">
         <div className="space-y-2">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl" id="features-heading">
-            Revolutionary Features
+            Key Features
           </h2>
           <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            Discover how FrameIt combines cutting-edge E-Ink technology with intuitive design to create the perfect
-            digital display for your home
+            Natural paper-like aesthetic with no glare or backlight. Web interface for easy configuration. 
+            Open-source and customizable with scheduled playlists and plugin support—perfect for beginners and makers alike.
           </p>
         </div>
       </div>

@@ -15,7 +15,7 @@ export function meta({}: Route.MetaArgs) {
     {
       name: "description",
       content:
-        "Redefining digital frames with E-Ink technology. Low power, always-on display that brings your memories to life.",
+        "Open-source, customizable E-Ink display powered by Raspberry Pi. Natural paper-like aesthetic with web interface for effortless content management. Display photos, weather, calendar, news, and more with minimal power consumption.",
     },
   ];
 }
