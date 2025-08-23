@@ -39,13 +39,19 @@ export default function Home() {
         {/* Welcome Section */}
         <section className="relative snap-start h-screen w-full pt-24 flex flex-col justify-center items-center bg-background">
           {/* Neobrutalist background pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary via-secondary to-accent"></div>
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"%3E%3Cpath d=\"M0 0h25v25H0zM25 25h25v25H25zM50 0h25v25H50zM75 25h25v25H75z\" fill=\"%23000\" fill-opacity=\"0.1\"/%3E%3C/svg%3E')] bg-repeat"></div>
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary via-secondary to-accent" />
+            <div
+              className="absolute top-0 left-0 w-full h-full bg-repeat"
+              style={{
+                backgroundImage:
+                  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0 0h25v25H0zM25 25h25v25H25zM50 0h25v25H50zM75 25h25v25H75z' fill='%23000' fill-opacity='0.1'/%3E%3C/svg%3E\")",
+              }}
+            />
           </div>
 
           {/* Content layer */}
-          <div className="relative z-10">
+          <div className="relative z-10 py-8">
             <Welcome />
           </div>
         </section>

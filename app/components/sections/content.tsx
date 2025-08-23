@@ -98,30 +98,7 @@ export default function Content() {
             />
           </motion.div>
         </Link>
-        <div className="text-lg pt-6">or watch our demo video below</div>
       </div>
-
-      <motion.div
-        className="flex flex-col justify-center items-center z-40"
-        initial="offscreen"
-        animate={isInView ? "onscreen" : "offscreen"}
-        variants={videoVariants}
-      >
-        <HeroVideoDialog
-          className="block dark:hidden w-full md:w-3/4 lg:w-1/2"
-          animationStyle="from-center"
-          videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
-          thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
-          thumbnailAlt="FrameIt product demonstration video"
-        />
-        <HeroVideoDialog
-          className="hidden dark:block w-full md:w-3/4 lg:w-1/2"
-          animationStyle="from-center"
-          videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
-          thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
-          thumbnailAlt="FrameIt product demonstration video"
-        />
-      </motion.div>
     </div>
   );
 }

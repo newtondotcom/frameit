@@ -26,7 +26,7 @@ export default function Welcome() {
 
   return (
     <>
-      <div className="h-screen flex flex-col justify-center container px-4 md:px-6">
+      <div className="h-screen flex flex-col justify-center container px-4 py-8 md:px-6">
         <div className="flex flex-col justify-center space-y-12">
           <div className="flex flex-col justify-center space-y-4 w-full md:w-2/3 lg:w-1/2">
             <div className="space-y-2">
@@ -60,23 +60,6 @@ export default function Welcome() {
                   vibrant colors!
                 </TypingAnimation>
               </h2>
-              <span className="mt-6 text-lg font-bold bg-card text-card-foreground px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_theme(colors.black)] uppercase tracking-wide dark:border-yellow-400 dark:shadow-[4px_4px_0px_0px_theme(colors.yellow.400)]">
-                Scroll down to discover our revolutionary technology in full
-                color.
-              </span>
-              <motion.div
-                ref={chevronsRef}
-                initial="offscreen"
-                animate={isInView ? "onscreen" : "offscreen"}
-                variants={chevronsVariants}
-                className="text-black dark:text-white"
-                aria-hidden="true"
-              >
-                <ChevronsDown size={300} />
-              </motion.div>
-              <span className="sr-only">
-                Scroll down to explore more about FrameIt
-              </span>
             </div>
           </div>
         </div>
