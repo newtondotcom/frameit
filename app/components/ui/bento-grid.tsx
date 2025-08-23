@@ -50,11 +50,11 @@ const BentoCard = ({
     variants={cardVariants}
     transition={{ delay: props.key * 0.2 }} // Staggered delay based on index
     className={cn(
-      "group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl",
-      // light styles
-      "bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
+      "group relative col-span-3 flex flex-col justify-between overflow-hidden border-4 border-black",
+      // Neobrutalist styles
+      "bg-card shadow-[8px_8px_0px_0px_theme(colors.black)] transform transition-all hover:translate-x-2 hover:translate-y-2 hover:shadow-[4px_4px_0px_0px_theme(colors.black)]",
       // dark styles
-      "transform-gpu dark:bg-background dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
+      "transform-gpu dark:border-yellow-400 dark:shadow-[8px_8px_0px_0px_theme(colors.yellow.400)]",
       className,
     )}
     {...props}
@@ -66,8 +66,8 @@ const BentoCard = ({
         className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75 dark:text-neutral-300"
         aria-hidden="true"
       />
-      <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">{name}</h3>
-      <p className="max-w-lg text-neutral-400">{description}</p>
+      <h3 className="text-xl font-black uppercase tracking-wider text-card-foreground">{name}</h3>
+      <p className="max-w-lg font-bold text-card-foreground">{description}</p>
     </div>
 
     <div

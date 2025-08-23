@@ -37,9 +37,12 @@ export default function Home() {
       <Header />
       <main className="flex-1 snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth max-w-screen overflow-x-hidden">
         {/* Welcome Section */}
-        <section className="relative snap-start h-screen w-full pt-24 flex flex-col justify-center items-center">
-          {/* Background image with scaling and blur effect */}
-          <div className="absolute inset-0 bg-[url(/kitchen.jpg)] bg-cover bg-center bg-opacity-50 blur-sm scale-105"></div>
+        <section className="relative snap-start h-screen w-full pt-24 flex flex-col justify-center items-center bg-background">
+          {/* Neobrutalist background pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary via-secondary to-accent"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"%3E%3Cpath d=\"M0 0h25v25H0zM25 25h25v25H25zM50 0h25v25H50zM75 25h25v25H75z\" fill=\"%23000\" fill-opacity=\"0.1\"/%3E%3C/svg%3E')] bg-repeat"></div>
+          </div>
 
           {/* Content layer */}
           <div className="relative z-10">
@@ -50,7 +53,7 @@ export default function Home() {
         {/* Features Section */}
         <section
           id="features"
-          className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
+          className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center bg-secondary"
           ref={ref2}
         >
           <Features />
@@ -60,7 +63,7 @@ export default function Home() {
         <section
           id="specs"
           ref={ref}
-          className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
+          className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center bg-accent"
         >
           <Specs />
         </section>
@@ -68,7 +71,7 @@ export default function Home() {
         {/* Content Section */}
         <section
           id="content"
-          className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
+          className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center bg-muted"
         >
           <Content />
         </section>
@@ -76,7 +79,7 @@ export default function Home() {
         {/* Convinced Section */}
         <section
           id="buy"
-          className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
+          className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center bg-primary"
         >
           <Convinced />
         </section>

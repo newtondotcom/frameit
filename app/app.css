@@ -5,26 +5,27 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.32 0.03 90);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.32 0.03 90);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.32 0.03 90);
-  --primary: oklch(0.9 0.2 100);
-  --primary-foreground: oklch(0.6 0.15 90);
-  --secondary: oklch(0.98 0.02 110);
-  --secondary-foreground: oklch(0.45 0.05 85);
-  --muted: oklch(0.98 0.02 110);
-  --muted-foreground: oklch(0.55 0.04 85);
-  --accent: oklch(0.98 0.02 110);
-  --accent-foreground: oklch(0.45 0.05 85);
-  --destructive: oklch(0.75 0.25 25);
-  --destructive-foreground: oklch(0.99 0.02 110);
-  --border: oklch(0.92 0.02 100);
-  --input: oklch(0.92 0.02 100);
-  --ring: oklch(0.32 0.03 90);
-  --radius: 0.5rem;
+  /* Neobrutalism color scheme - bold and contrasting */
+  --background: #FFFF00; /* Bright yellow background */
+  --foreground: #000000; /* Pure black text */
+  --card: #FF6B6B; /* Bright coral red cards */
+  --card-foreground: #000000; /* Black text on cards */
+  --popover: #4ECDC4; /* Bright teal popover */
+  --popover-foreground: #000000; /* Black text on popover */
+  --primary: #FF1744; /* Bright red primary */
+  --primary-foreground: #FFFFFF; /* White text on primary */
+  --secondary: #00E676; /* Bright green secondary */
+  --secondary-foreground: #000000; /* Black text on secondary */
+  --muted: #9C27B0; /* Purple muted */
+  --muted-foreground: #FFFFFF; /* White text on muted */
+  --accent: #FF9800; /* Orange accent */
+  --accent-foreground: #000000; /* Black text on accent */
+  --destructive: #D32F2F; /* Deep red destructive */
+  --destructive-foreground: #FFFFFF; /* White text on destructive */
+  --border: #000000; /* Black borders for brutalism */
+  --input: #FFFFFF; /* White input backgrounds */
+  --ring: #FF1744; /* Red focus rings */
+  --radius: 0rem; /* Sharp corners - no radius */
 
   /* Charts */
   --chart-1: oklch(0.75 0.3 45);
@@ -42,25 +43,26 @@
 }
 
 .dark {
-  --background: oklch(0.32 0.03 90);
-  --foreground: oklch(0.99 0.02 110);
-  --card: oklch(0.32 0.03 90);
-  --card-foreground: oklch(0.99 0.02 110);
-  --popover: oklch(0.32 0.03 90);
-  --popover-foreground: oklch(0.99 0.02 110);
-  --primary: oklch(0.9 0.2 100);
-  --primary-foreground: oklch(0.6 0.15 90);
-  --secondary: oklch(0.4 0.05 80);
-  --secondary-foreground: oklch(0.99 0.02 110);
-  --muted: oklch(0.4 0.05 80);
-  --muted-foreground: oklch(0.6 0.05 85);
-  --accent: oklch(0.4 0.05 80);
-  --accent-foreground: oklch(0.99 0.02 110);
-  --destructive: oklch(0.5 0.3 25);
-  --destructive-foreground: oklch(0.99 0.02 110);
-  --border: oklch(0.4 0.05 80);
-  --input: oklch(0.4 0.05 80);
-  --ring: oklch(0.55 0.2 90);
+  /* Dark mode neobrutalism - inverted but still bold */
+  --background: #000000; /* Pure black background */
+  --foreground: #FFFF00; /* Bright yellow text */
+  --card: #2E7D32; /* Dark green cards */
+  --card-foreground: #FFFF00; /* Yellow text on cards */
+  --popover: #1A237E; /* Deep blue popover */
+  --popover-foreground: #FFFF00; /* Yellow text on popover */
+  --primary: #FF1744; /* Keep bright red primary */
+  --primary-foreground: #FFFFFF; /* White text on primary */
+  --secondary: #9C27B0; /* Purple secondary */
+  --secondary-foreground: #FFFFFF; /* White text on secondary */
+  --muted: #424242; /* Dark gray muted */
+  --muted-foreground: #FFFF00; /* Yellow text on muted */
+  --accent: #FF9800; /* Keep orange accent */
+  --accent-foreground: #000000; /* Black text on accent */
+  --destructive: #D32F2F; /* Keep deep red destructive */
+  --destructive-foreground: #FFFFFF; /* White text on destructive */
+  --border: #FFFF00; /* Yellow borders for contrast */
+  --input: #1A1A1A; /* Dark input backgrounds */
+  --ring: #FF1744; /* Red focus rings */
 
   /* Charts */
   --chart-1: oklch(0.7 0.3 250);
@@ -75,7 +77,68 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-bold;
+    /* Neobrutalist body styling */
+    font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
+  }
+  
+  /* Neobrutalist utility classes */
+  .neo-shadow {
+    box-shadow: 6px 6px 0px 0px theme('colors.black');
+  }
+  
+  .neo-shadow-lg {
+    box-shadow: 12px 12px 0px 0px theme('colors.black');
+  }
+  
+  .neo-border {
+    border: 4px solid theme('colors.black');
+  }
+  
+  .neo-card {
+    @apply neo-border neo-shadow bg-card text-card-foreground p-6 transform transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none;
+  }
+  
+  .neo-button {
+    @apply neo-border neo-shadow px-6 py-3 font-black uppercase text-sm tracking-wider transform transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-2 active:translate-y-2;
+  }
+  
+  /* Additional neobrutalist utilities */
+  .neo-text-shadow {
+    text-shadow: 3px 3px 0px theme('colors.black');
+  }
+  
+  .neo-rotate-1 {
+    transform: rotate(1deg);
+  }
+  
+  .neo-rotate-2 {
+    transform: rotate(2deg);
+  }
+  
+  .neo-rotate-neg-1 {
+    transform: rotate(-1deg);
+  }
+  
+  .neo-rotate-neg-2 {
+    transform: rotate(-2deg);
+  }
+  
+  /* Dark mode specific shadows */
+  .dark .neo-shadow {
+    box-shadow: 6px 6px 0px 0px theme('colors.yellow.400');
+  }
+  
+  .dark .neo-shadow-lg {
+    box-shadow: 12px 12px 0px 0px theme('colors.yellow.400');
+  }
+  
+  .dark .neo-border {
+    border: 4px solid theme('colors.yellow.400');
+  }
+  
+  .dark .neo-text-shadow {
+    text-shadow: 3px 3px 0px theme('colors.yellow.400');
   }
 }
 

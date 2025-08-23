@@ -36,7 +36,7 @@ export default function Header() {
         <Link
           key={to}
           to={to}
-          className="text-sm font-medium hover:underline underline-offset-4"
+          className="text-sm font-black uppercase tracking-wider hover:text-primary transition-colors border-2 border-transparent hover:border-black px-3 py-2"
           onClick={onClick}
         >
           {label}
@@ -48,9 +48,9 @@ export default function Header() {
   return (
     <div className="fixed top-2 left-0 right-0 z-[100]">
       {!isRainbow && (
-        <header className="w-full max-w-[calc(100%-4rem)] h-16 flex items-center justify-between border border-black bg-white/10 dark:border-white dark:bg-dark/10 shadow-md z-50 px-4 lg:px-6 backdrop-blur-md rounded-3xl mx-auto">
+        <header className="w-full max-w-[calc(100%-4rem)] h-20 flex items-center justify-between border-4 border-black bg-card shadow-[8px_8px_0px_0px_theme(colors.black)] z-50 px-6 lg:px-8 mx-auto transform transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_theme(colors.black)] dark:border-yellow-400 dark:shadow-[8px_8px_0px_0px_theme(colors.yellow.400)]">
           <Link className="flex items-center gap-2" to="/">
-            <span className="font-bold text-2xl text-secondary">FrameIt</span>
+            <span className="font-black text-3xl text-foreground uppercase tracking-wider">FrameIt</span>
           </Link>
 
           <nav
@@ -114,7 +114,7 @@ export default function Header() {
       {mobileMenuOpen && (
         <nav
           id="mobile-menu"
-          className="fixed top-16 left-0 w-full md:hidden flex flex-col gap-4 p-4 border-b bg-white shadow-md dark:bg-background dark:border-border"
+          className="fixed top-24 left-4 right-4 md:hidden flex flex-col gap-4 p-6 border-4 border-black bg-card shadow-[8px_8px_0px_0px_theme(colors.black)] dark:border-yellow-400 dark:shadow-[8px_8px_0px_0px_theme(colors.yellow.400)]"
           aria-label="Mobile navigation"
         >
           <NavLinks onClick={toggleMobileMenu} />
